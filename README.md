@@ -1,4 +1,5 @@
-![Header](./github-header-image (1).png)
+
+![Header](./[github-header-image (1).png])
 <!--
 **shivam2003sy/shivam2003sy** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
