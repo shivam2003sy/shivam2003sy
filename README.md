@@ -16,7 +16,6 @@
   - *IET, Bundelkhand University, Jhansi*
   - *Year:* 2024
   - *CGPA:* 8.0
-
 ## Scholastic Achievements
 - Smart India Hackathon Winner 2023 (ISRO)
 - Smart India Hackathon Winner 2022 (Ministry of Jal Shakti)
@@ -53,6 +52,39 @@
 - 
 ## Interests
 Outside of tech, I enjoy Playing chess, participating in hackathons . I’m always eager to learn and tackle new challenges.
+
+
+## Hosted Projects
+
+1. [InterviewBlitz](https://interview-blitz.vercel.app/) - A platform to Test, Interview, and Hire in a fast-forward way! 
+
+##### Features
+
+-  Schedule Interviews :  Easily schedule interviews for technical positions within the app.
+
+- Customized Testing Criteria : Define specific testing criteria for each technical post to assess candidates effectively.
+
+- Automated Scoring  :Our automated scoring system assigns marks to candidates based on their performance in each criterion.
+
+- Detailed Reports :Generate detailed reports for candidates and interviewers to identify strengths and areas for improvement.
+
+- Seamless Communication : Facilitate communication between interviewers and candidates throughout the process.
+
+- Main Interview Module  : Conduct interviews efficiently with a user-friendly interface.
+
+- Future Enhancements : Continuous improvement with upcoming features such as advanced analytics and integration with applicant tracking systems.
+- 
+![InterviewBlitz Screenshot](interviews.png)
+*Screenshot of the InterviewBlitz platform.*
+<!-- 
+1. [Portfolio Website](https://example.com/portfolio) - A showcase of my projects and skills.
+   ![Portfolio Website Screenshot](screenshots/portfolio.png)
+
+2. [Online Store](https://example.com/store) - An e-commerce website selling handmade crafts.
+   ![Online Store Screenshot](screenshots/store.png) -->
+
+Feel free to explore these websites and reach out to me if you have any questions or feedback!
+
 
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=shivam2003sy&label=Profile%20views&color=0e75b6&style=flat" alt="shivam2003sy" /> </p>
