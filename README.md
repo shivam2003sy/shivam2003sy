@@ -76,10 +76,10 @@ Outside of tech, I enjoy Playing chess, participating in hackathons . I’m alwa
 - 
 ![InterviewBlitz Screenshot](interviews.png)
 *Screenshot of the InterviewBlitz platform.*
-<!-- 
-1. [Portfolio Website](https://example.com/portfolio) - A showcase of my projects and skills.
-   ![Portfolio Website Screenshot](screenshots/portfolio.png)
 
+1. [Bloglite](https://vloglite.vercel.app/) - Blog lite is similar to social media site for sharing thoughts with images  with like , comment ,   Cache  , redis   ,  mail  ,  jwt auth etc.
+   ![ Website Screenshot](vlogsingh.png)
+<!-- 
 2. [Online Store](https://example.com/store) - An e-commerce website selling handmade crafts.
    ![Online Store Screenshot](screenshots/store.png) -->
 
