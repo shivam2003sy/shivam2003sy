@@ -10,11 +10,9 @@
 ## Education
 - **B.S in Data Science and Application**
   - *Indian Institute of Technology Madras, Chennai*
-  - *Year:* 2023
   - *CGPA:* 7.5
 - **B.Tech in Computer Science**
   - *IET, Bundelkhand University, Jhansi*
-  - *Year:* 2024
   - *CGPA:* 8.0
 ## Scholastic Achievements
 - Smart India Hackathon Winner 2023 (ISRO)
