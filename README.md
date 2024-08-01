@@ -41,7 +41,10 @@
 - Led development of user-friendly graphic interface using Electron.js and React.js
 - Contributed to water quality analysis application
 
-### Full Stack Developer (Somadisha Consultants and Solutions Pvt. Ltd) (1+ year )
+### Lurra Technology pyt lim.
+ Full stack developer with data architecture
+
+### Full Stack Developer (Somadisha Consultants and Solutions Pvt. Ltd) 
 - Developed React Native Android app called HashX
 - Proficient in ReactJS, React Native, Supabase
 
