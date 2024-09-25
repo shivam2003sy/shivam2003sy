@@ -1,82 +1,95 @@
 # Shivam Singh
-[![Header](./header.png)](https://www.linkedin.com/in/shivam-singh-6b062a212/)
-<h3 align="center">A passionate  developer from India</h3>
-
+[![Header](./header.png)](https://www.linkedin.com/in/shivam-singh-4946b2196/)
+<h3 align="center">A passionate Full Stack Developer and Data Scientist from India</h3>
 
 ## Contact Information
 - **Email:** shivam2003sy@gmail.com
 - **Phone:** 8542802233
 
 ## Education
-- **B.S in Data Science and Application**
-  - *Indian Institute of Technology Madras, Chennai*
-  - *CGPA:* 7.5
-- **B.Tech in Computer Science**
-  - *IET, Bundelkhand University, Jhansi*
-  - *CGPA:* 8.0
+- **B.S in Data Science and Applications**  
+  - *Indian Institute of Technology Madras, Chennai*  
+  - *CGPA:* 7.5  
+- **B.Tech in Computer Science and Engineering**  
+  - *IET, Bundelkhand University, Jhansi*  
+  - *CGPA:* 8.0  
+
 ## Scholastic Achievements
-- Smart India Hackathon Winner 2023 (ISRO)
-- Smart India Hackathon Winner 2022 (Ministry of Jal Shakti)
-- Google HashCode Competition Rank 1797
+- **Smart India Hackathon Winner 2023 (ISRO)**
+- **Smart India Hackathon Winner 2022 (Ministry of Jal Shakti)**
+- **Google HashCode Competition Rank 1797**
 - Attended Innovation, Design, and Entrepreneurship (IDE) Bootcamp by Gov. of India
 
 ## Relevant Courses and Skills
 ### Application Development
-- **Frontend:** HTML/CSS, JavaScript, React, Vue.js
-- **Backend:** Python, Flask, Celery, Redis, PostgreSQL
-- **Mobile:** React Native
-- **Version Control:** Git, GitHub
+- **Frontend:** HTML/CSS, JavaScript, React, Vue.js  
+- **Backend:** Python, Flask, Celery, Redis, PostgreSQL  
+- **Mobile:** React Native  
+- **Version Control:** Git, GitHub  
 
 ### Machine Learning
-- **Skills:** Linear Algebra, Statistics, ML Algorithms, Deep Learning, Reinforcement Learning
-- **Libraries:** scikit-learn, Pandas, NumPy, Matplotlib, Seaborn
+- **Skills:** Linear Algebra, Statistics, ML Algorithms, Deep Learning, Reinforcement Learning  
+- **Libraries:** scikit-learn, Pandas, NumPy, Matplotlib, Seaborn  
 
 ### Big Data & Other Tools
-- **Tools:** Kafka, Hadoop, Apache Spark, Tableau
-- **Cloud:** Google Cloud Platform
-- **Certification:** NPTEL Certificate Course - Cloud Computing
+- **Tools:** Kafka, Hadoop, Apache Spark, Tableau  
+- **Cloud:** Google Cloud Platform  
+- **Certification:** NPTEL Certificate Course - Cloud Computing  
 
-## Professional Experiences (Internships)
-### Product Developer (Ministry of Jal Shakti, Central Ground Water Board)
-- Led development of user-friendly graphic interface using Electron.js and React.js
-- Contributed to water quality analysis application
+## Professional Experiences
+### Data Science and Full-Stack Development Consultant (Lurra Systems Pty Ltd)  
+*March 2024 – Present*  
+- Developed an intelligent NTRIP caster with "Nearest" functionality, optimizing data streaming by automatically selecting the nearest mount point for efficient on-demand streaming.  
+- Architected and implemented a robust site server for data stream management using TCP and NTRIP protocols. Integrated real-time logging with Elasticsearch, Filebeat, and Logstash.  
+- Automated quality checks for RTCM data using Python, enhancing data accuracy and reducing manual intervention.
 
-### Lurra Technology pyt lim.
- Full stack developer with data architecture
+### Product Developer (Ministry of Jal Shakti, Central Ground Water Board)  
+*July 2023 – Dec 2023*  
+- Led development of a user-friendly graphical interface for water quality analysis using Electron.js and React.js, reducing analysis time by 30%.  
+- Collaborated in building a data visualization application for precise water quality analysis and graph plotting.
 
-### Full Stack Developer (Somadisha Consultants and Solutions Pvt. Ltd) 
-- Developed React Native Android app called HashX
-- Proficient in ReactJS, React Native, Supabase
+### Full Stack Developer (Somadisha Consultants and Solutions Pvt. Ltd)  
+*Jan 2023 – June 2023*  
+- Developed **HashX**, a React Native Android app with deep linking, feed recommendation, and translation features.  
+- Successfully migrated codebase from React Native 0.67 to 0.74, improving performance and maintainability.
 
-### Frontend Developer (Shiksha-Sopan, IIT Kanpur)
-- Contributed to development of Full Naest project, an online examination platform
-- 
+### Frontend Developer (Shiksha-Sopan, IIT Kanpur)  
+*Contributed to the development of Full Naest*, an online examination platform using React.js and Node.js.
+
 ## Interests
-Outside of tech, I enjoy Playing chess, participating in hackathons . I’m always eager to learn and tackle new challenges.
-
+Beyond tech, I enjoy playing chess, participating in hackathons, and continuously learning to tackle new challenges.
 
 ## Hosted Projects
+### [InterviewBlitz](https://interview-blitz.vercel.app/)  
+A platform to streamline the interview process with scheduling, testing, and automated scoring features.
 
-1. [InterviewBlitz](https://interview-blitz.vercel.app/) - A platform to Test, Interview, and Hire in a fast-forward way! 
+- **Features:**  
+  - Schedule interviews  
+  - Customized testing criteria  
+  - Automated scoring  
+  - Detailed reports  
+  - Seamless communication  
+  - Real-time video conferencing (using WebRTC)  
+- **Technologies:** React, Node.js, MongoDB, Express, WebRTC, Tailwind CSS  
 
-##### Features
-
--  Schedule Interviews :  Easily schedule interviews for technical positions within the app.
-
-- Customized Testing Criteria : Define specific testing criteria for each technical post to assess candidates effectively.
-
-- Automated Scoring  :Our automated scoring system assigns marks to candidates based on their performance in each criterion.
-
-- Detailed Reports :Generate detailed reports for candidates and interviewers to identify strengths and areas for improvement.
-
-- Seamless Communication : Facilitate communication between interviewers and candidates throughout the process.
-
-- Main Interview Module  : Conduct interviews efficiently with a user-friendly interface.
-
-- Future Enhancements : Continuous improvement with upcoming features such as advanced analytics and integration with applicant tracking systems.
-- 
 ![InterviewBlitz Screenshot](interviews.png)
-*Screenshot of the InterviewBlitz platform.*
+
+### [Bloglite](https://vloglite.vercel.app/)  
+A social media-like platform for sharing thoughts with images, comments, and likes.
+
+- **Features:**  
+  - JWT authentication  
+  - Redis for caching  
+  - Like and comment functionality  
+- **Technologies:** React, Node.js, MongoDB, Redis
+
+
+
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=shivam2003sy&label=Profile%20views&color=0e75b6&style=flat" alt="shivam2003sy" /> </p>
+
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=shivam2003
+
+
 
 1. [Bloglite](https://vloglite.vercel.app/) - Blog lite is similar to social media site for sharing thoughts with images  with like , comment ,   Cache  , redis   ,  mail  ,  jwt auth etc.
    ![ Website Screenshot](vlogsingh.png)
