@@ -36,12 +36,7 @@
 - **Cloud:** Google Cloud Platform  
 - **Certification:** NPTEL Certificate Course - Cloud Computing  
 
-## Professional Experiences
-### Data Science and Full-Stack Development Consultant (Lurra Systems Pty Ltd)  
-*March 2024 – Present*  
-- Developed an intelligent NTRIP caster with "Nearest" functionality, optimizing data streaming by automatically selecting the nearest mount point for efficient on-demand streaming.  
-- Architected and implemented a robust site server for data stream management using TCP and NTRIP protocols. Integrated real-time logging with Elasticsearch, Filebeat, and Logstash.  
-- Automated quality checks for RTCM data using Python, enhancing data accuracy and reducing manual intervention.
+## Professional Experience
 
 ### Product Developer (Ministry of Jal Shakti, Central Ground Water Board)  
 *July 2023 – Dec 2023*  
