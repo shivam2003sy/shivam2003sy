@@ -36,21 +36,6 @@
 - **Cloud:** Google Cloud Platform  
 - **Certification:** NPTEL Certificate Course - Cloud Computing  
 
-## Professional Experience
-
-### Product Developer (Ministry of Jal Shakti, Central Ground Water Board)  
-*July 2023 – Dec 2023*  
-- Led development of a user-friendly graphical interface for water quality analysis using Electron.js and React.js, reducing analysis time by 30%.  
-- Collaborated in building a data visualization application for precise water quality analysis and graph plotting.
-
-### Full Stack Developer (Somadisha Consultants and Solutions Pvt. Ltd)  
-*Jan 2023 – June 2023*  
-- Developed **HashX**, a React Native Android app with deep linking, feed recommendation, and translation features.  
-- Successfully migrated codebase from React Native 0.67 to 0.74, improving performance and maintainability.
-
-### Frontend Developer (Shiksha-Sopan, IIT Kanpur)  
-*Contributed to the development of Full Naest*, an online examination platform using React.js and Node.js.
-
 ## Interests
 Beyond tech, I enjoy playing chess, participating in hackathons, and continuously learning to tackle new challenges.
 
