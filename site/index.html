@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shivam Singh — Backend Engineer, Go &amp; Real-Time Streaming</title>
+<meta name="description" content="Backend engineer in Dubai. Go, real-time streaming, Kubernetes. Built a pipeline holding 10,000+ concurrent streams.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A1A2F;
+    --panel:#0F2238;
+    --grid:#1B3A57;
+    --go:#00ADD8;
+    --amber:#F2B44A;
+    --paper:#E8F0F7;
+    --muted:#7E9BB5;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--go);text-decoration:none;border-bottom:1px solid rgba(0,173,216,.35)}
+  a:hover{border-bottom-color:var(--go)}
+  a:focus-visible,button:focus-visible,input:focus-visible{
+    outline:2px solid var(--amber);outline-offset:3px;border-radius:2px;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  /* top rail */
+  .rail{
+    border-bottom:1px solid var(--grid);
+    position:sticky;top:0;z-index:20;
+    background:rgba(10,26,47,.92);
+    backdrop-filter:blur(8px);
+  }
+  .rail .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:58px}
+  .rail .who{font-weight:600;letter-spacing:.01em}
+  .rail nav{display:flex;gap:22px;font-size:15px}
+  .rail nav a{color:var(--muted);border:0}
+  .rail nav a:hover{color:var(--paper)}
+
+  /* hero */
+  .hero{padding:68px 0 0}
+  h1{
+    font-size:clamp(2.6rem,7vw,4.6rem);
+    line-height:.98;
+    margin:0 0 18px;
+    font-weight:700;
+    letter-spacing:-.025em;
+  }
+  .lede{font-size:clamp(1.05rem,2.3vw,1.3rem);color:var(--paper);max-width:52ch;margin:0 0 10px}
+  .sub{color:var(--muted);max-width:62ch;margin:0 0 34px;font-size:1rem}
+
+  /* instrument */
+  .instrument{
+    border:1px solid var(--grid);
+    background:var(--panel);
+    border-radius:3px;
+    overflow:hidden;
+  }
+  .screen{display:block;width:100%;height:auto}
+  .controls{
+    border-top:1px solid var(--grid);
+    display:flex;flex-wrap:wrap;align-items:center;gap:18px 30px;
+    padding:16px 20px;
+  }
+  .label{
+    font-size:12px;letter-spacing:.14em;color:var(--muted);
+  }
+  .sliderbox{display:flex;align-items:center;gap:14px;flex:1 1 260px;min-width:240px}
+  input[type=range]{
+    -webkit-appearance:none;appearance:none;flex:1;height:3px;
+    background:var(--grid);border-radius:2px;outline-offset:6px;
+  }
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;
+    background:var(--go);cursor:pointer;border:3px solid var(--panel);
+    box-shadow:0 0 0 1px var(--go);
+  }
+  input[type=range]::-moz-range-thumb{
+    width:16px;height:16px;border-radius:50%;background:var(--go);cursor:pointer;
+    border:3px solid var(--panel);box-shadow:0 0 0 1px var(--go);
+  }
+  .readout{display:flex;gap:8px;align-items:baseline}
+  .readout .v{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-variant-numeric:tabular-nums;
+    font-size:19px;color:var(--amber);
+  }
+  .readout .v.live{color:var(--go)}
+
+  /* numbers rail */
+  .numbers{
+    margin:76px 0 0;border-top:1px solid var(--grid);border-bottom:1px solid var(--grid);
+    display:grid;grid-template-columns:repeat(5,1fr);
+  }
+  .num{padding:26px 20px 24px;border-right:1px solid var(--grid)}
+  .num:last-child{border-right:0}
+  .num b{
+    display:block;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-variant-numeric:tabular-nums;
+    font-size:clamp(1.35rem,2.6vw,1.9rem);font-weight:500;color:var(--amber);
+    letter-spacing:-.01em;margin-bottom:6px;
+  }
+  .num span{display:block;font-size:13.5px;color:var(--muted);line-height:1.45}
+
+  /* sections */
+  section{padding:76px 0}
+  h2{
+    font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:600;letter-spacing:-.02em;
+    margin:0 0 34px;max-width:28ch;line-height:1.15;
+  }
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .fail h3{font-size:1.06rem;font-weight:600;margin:0 0 8px;color:var(--go)}
+  .fail p{margin:0 0 30px;color:#C3D6E6;max-width:48ch;font-size:16px}
+  .fail p:last-child{margin-bottom:0}
+
+  /* experience */
+  .job{
+    border-top:1px solid var(--grid);padding:26px 0;
+    display:grid;grid-template-columns:200px 1fr;gap:30px;
+  }
+  .job:last-child{border-bottom:1px solid var(--grid)}
+  .job .when{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13.5px;color:var(--muted);
+    padding-top:3px;
+  }
+  .job h3{margin:0 0 4px;font-size:1.1rem;font-weight:600}
+  .job .org{color:var(--muted);font-size:15px;margin:0 0 12px}
+  .job ul{margin:0;padding-left:18px;color:#C3D6E6;font-size:15.5px}
+  .job li{margin-bottom:6px}
+
+  /* stack */
+  .stack{display:grid;grid-template-columns:repeat(2,1fr);gap:0 56px}
+  .srow{
+    display:grid;grid-template-columns:150px 1fr;gap:18px;
+    padding:14px 0;border-top:1px solid var(--grid);align-items:baseline;
+  }
+  .srow .k{font-size:13px;letter-spacing:.1em;color:var(--muted)}
+  .srow .v{font-size:15.5px}
+  .srow .v em{font-style:normal;color:var(--go)}
+
+  /* projects */
+  .projects{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .proj{border:1px solid var(--grid);padding:24px;border-radius:3px}
+  .proj h3{margin:0 0 10px;font-size:1.08rem}
+  .proj p{margin:0 0 14px;color:#C3D6E6;font-size:15.5px}
+  .proj .tags{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12.5px;color:var(--muted)}
+
+  /* contact */
+  footer{border-top:1px solid var(--grid);padding:64px 0 80px}
+  .contact{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:baseline;margin-top:22px}
+  .contact a{font-size:17px}
+  .note{color:var(--muted);font-size:15px;margin-top:34px}
+
+  @media (max-width:900px){
+    .split,.stack,.projects{grid-template-columns:1fr;gap:34px}
+    .numbers{grid-template-columns:repeat(2,1fr)}
+    .num{border-bottom:1px solid var(--grid)}
+    .num:nth-child(2n){border-right:0}
+    .job{grid-template-columns:1fr;gap:10px}
+    .rail nav{gap:16px;font-size:14px}
+    section{padding:58px 0}
+    .wrap{padding:0 20px}
+  }
+  @media (max-width:560px){
+    .numbers{grid-template-columns:1fr}
+    .num{border-right:0}
+    .rail nav a:nth-child(1){display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<div class="rail">
+  <div class="wrap">
+    <div class="who">Shivam Singh</div>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap hero">
+  <h1>Systems that stay<br>up under load.</h1>
+  <p class="lede">Backend engineer in Dubai. Go, real-time streaming, Kubernetes.</p>
+  <p class="sub">Below is the shape of the pipeline I built at Lurra Systems: four protocols in, one normalised model, four protocols out. It held more than ten thousand concurrent streams. Push the slider and watch what happens when something malformed arrives.</p>
+
+  <div class="instrument">
+    <canvas id="screen" class="screen" aria-label="Animated diagram of a streaming pipeline: NTRIP, TCP, UDP and file sources feed a Go ingest layer, which normalises data and fans out to MQTT, NTRIP, TCP/UDP and socket outputs."></canvas>
+    <div class="controls">
+      <div class="sliderbox">
+        <span class="label">concurrent streams</span>
+        <input id="load" type="range" min="0" max="100" value="38" aria-label="Concurrent streams">
+      </div>
+      <div class="readout"><span class="label">streams</span><span class="v live" id="r-streams">3,200</span></div>
+      <div class="readout"><span class="label">malformed isolated</span><span class="v" id="r-bad">0</span></div>
+      <div class="readout"><span class="label">listener</span><span class="v" id="r-up">up</span></div>
+    </div>
+  </div>
+
+  <div class="numbers">
+    <div class="num"><b>10,000+</b><span>concurrent streams, Go on Kubernetes</span></div>
+    <div class="num"><b>15,000+</b><span>listings served, timeouts to under 3s</span></div>
+    <div class="num"><b>2m &rarr; 2s</b><span>booking transaction latency</span></div>
+    <div class="num"><b>~5 min</b><span>downtime per cutover, Azure to AWS</span></div>
+    <div class="num"><b>10&ndash;20</b><span>production servers on AWS EC2</span></div>
+  </div>
+</div>
+
+<section class="wrap">
+  <div class="split">
+    <div>
+      <h2>What actually breaks at ten thousand connections</h2>
+      <p style="color:var(--muted);max-width:44ch;font-size:16px">The happy path is the easy part. Three things decide whether a system survives contact with production.</p>
+    </div>
+    <div class="fail">
+      <h3>One bad frame</h3>
+      <p>A device sends something malformed in the middle of an aggregated batch. If that kills the listener, every other device goes dark with it. Bad events get isolated per event, counted, and left behind — the pipeline keeps moving.</p>
+
+      <h3>Two writes at once</h3>
+      <p>Two guests book the same property in the same instant. Correct-looking code double-books under concurrency. Fixing it took the transaction path from over two minutes to under two seconds across 15,000 listings, and the double-bookings stopped.</p>
+
+      <h3>The restore nobody tested</h3>
+      <p>A backup that has never been restored is not a backup. I have restored MongoDB replica sets and PostgreSQL into fresh servers, and migrated a live production stack from Azure to AWS in phases, holding each cutover to about five minutes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="work">
+  <h2>Work</h2>
+
+  <div class="job">
+    <div class="when">May 2025 &mdash; present</div>
+    <div>
+      <h3>Full-Stack Engineer</h3>
+      <p class="org">Livjaza Vacation Homes Rental, Dubai</p>
+      <ul>
+        <li>Rebuilt search and listing infrastructure for 15,000+ listings, from repeated timeouts to sub-three-second responses.</li>
+        <li>Re-engineered booking logic to eliminate double-bookings under concurrent load.</li>
+        <li>Operate 10&ndash;20 production servers on AWS EC2: self-hosted MongoDB replica sets, PostgreSQL, tested backup and restore.</li>
+        <li>Led a phased Azure to AWS migration, fully stable in three weeks.</li>
+        <li>Integrated Stripe, Tabby and Tamara under PCI-compliant handling.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="when">Mar 2024 &mdash; Apr 2025</div>
+    <div>
+      <h3>Full-Stack Engineer</h3>
+      <p class="org">Lurra Systems, Australia (remote)</p>
+      <ul>
+        <li>Designed and built the Go streaming pipeline shown above, handling 10,000+ concurrent streams on Kubernetes.</li>
+        <li>Defensive network programming throughout: per-event isolation, thread-safe sessions, configurable limits and timeouts.</li>
+        <li>Built API-key IoT device management with live connection maps, coverage heatmaps and real-time metrics.</li>
+        <li>Reported directly to the CEO, turning business requirements into architecture.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="when">Aug 2023 &mdash; Feb 2024</div>
+    <div>
+      <h3>Product Developer</h3>
+      <p class="org">Central Ground Water Board, Government of India</p>
+      <ul>
+        <li>Led the team behind an open-source hydro-chemical analysis platform, <a href="https://cgwb.gov.in/visualization-and-interpretation-of-hydro-chemical-data">live on cgwb.gov.in</a>.</li>
+        <li>Cut analysis time 30% with interactive filtering, dynamic plotting and GIS-backed mapping.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="stack">
+  <h2>Stack</h2>
+  <div class="stack">
+    <div>
+      <div class="srow"><span class="k">languages</span><span class="v"><em>Go</em>, Python, TypeScript, SQL</span></div>
+      <div class="srow"><span class="k">streaming</span><span class="v"><em>MQTT</em>, Kafka, NTRIP, TCP, UDP, Spark</span></div>
+      <div class="srow"><span class="k">data</span><span class="v">PostgreSQL, MongoDB replica sets, Redis</span></div>
+    </div>
+    <div>
+      <div class="srow"><span class="k">infrastructure</span><span class="v"><em>Kubernetes</em>, Docker, AWS, GCP, Azure DevOps</span></div>
+      <div class="srow"><span class="k">observability</span><span class="v">Grafana, health checks, structured logging</span></div>
+      <div class="srow"><span class="k">product</span><span class="v">React, React Native, Stripe, Tabby, Tamara</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="proj">
+      <h3><a href="https://interview-blitz.vercel.app/">InterviewBlitz</a></h3>
+      <p>Interview platform with scheduling, customised testing criteria, automated scoring and real-time video over WebRTC.</p>
+      <div class="tags">React / Node.js / MongoDB / Express / WebRTC</div>
+    </div>
+    <div class="proj">
+      <h3><a href="https://vloglite.vercel.app/">Bloglite</a></h3>
+      <p>Social publishing platform with JWT authentication, Redis caching, likes and comments.</p>
+      <div class="tags">React / Node.js / MongoDB / Redis</div>
+    </div>
+  </div>
+  <p class="note">Winner, Smart India Hackathon 2023 (ISRO track) for an NTRIP caster with clients and servers across web and mobile. Winner, Smart India Hackathon 2022 (Ministry of Jal Shakti), as team leader. B.S. Data Science, IIT Madras.</p>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2 style="margin-bottom:10px">Open to backend and infrastructure work.</h2>
+    <p style="color:var(--muted);max-width:50ch;margin:0">Happy to talk about anything involving Go, streaming, or systems that have to stay up. Based in Dubai, three hours of overlap with Central European afternoons.</p>
+    <div class="contact">
+      <a href="mailto:shivam2003sy@gmail.com">shivam2003sy@gmail.com</a>
+      <a href="https://www.linkedin.com/in/shivam-singh-4946b2196/">LinkedIn</a>
+      <a href="https://github.com/shivam2003sy">GitHub</a>
+      <a href="https://leetcode.com/shivam2003sy">LeetCode</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var cv = document.getElementById('screen');
+  var ctx = cv.getContext('2d');
+  var slider = document.getElementById('load');
+  var outStreams = document.getElementById('r-streams');
+  var outBad = document.getElementById('r-bad');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var W=0,H=0,DPR=1;
+  var sources=[], sinks=[], nodes={}, particles=[], badCount=0, spawnAcc=0;
+
+  var SRC=['NTRIP','TCP','UDP','File'];
+  var SNK=['MQTT','NTRIP','TCP / UDP','Socket'];
+  var SNK_SHORT=['MQTT','NTRIP','TCP','Socket'];
+
+  function layout(){
+    var cssW = cv.parentNode.clientWidth;
+    var cssH = cssW < 620 ? 330 : (cssW < 900 ? 360 : 400);
+    DPR = Math.min(window.devicePixelRatio||1, 2);
+    cv.width = Math.round(cssW*DPR);
+    cv.height = Math.round(cssH*DPR);
+    cv.style.height = cssH+'px';
+    W = cssW; H = cssH;
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+
+    var narrow = cssW < 620;
+    var padX = narrow ? 14 : 30;
+    var colS = padX + (narrow?40:46);
+    var colI = cssW*(narrow?0.31:0.40);
+    var colN = cssW*(narrow?0.52:0.585);
+    var colF = cssW*(narrow?0.70:0.745);
+    var colK = cssW - padX - (narrow?56:50);
+
+    var topPad = 42, botPad = 34;
+    var span = cssH - topPad - botPad;
+
+    sources = SRC.map(function(name,i){
+      return {name:name, x:colS, y:topPad + span*(i/(SRC.length-1))};
+    });
+    var snkNames = narrow ? SNK_SHORT : SNK;
+    sinks = snkNames.map(function(name,i){
+      return {name:name, x:colK, y:topPad + span*(i/(snkNames.length-1))};
+    });
+    nodes.ingest = {x:colI, y:cssH/2, label:'Ingest', sub:'Go'};
+    nodes.norm   = {x:colN, y:cssH/2, label:'Normalise', sub:'one model'};
+    nodes.fan    = {x:colF, y:cssH/2, label:'Fan-out', sub:''};
+  }
+
+  function path(src){
+    // polyline: source -> ingest -> norm -> fan -> sink
+    return [{x:src.a.x,y:src.a.y}, nodes.ingest, nodes.norm, nodes.fan, {x:src.b.x,y:src.b.y}];
+  }
+
+  function spawn(){
+    var a = sources[(Math.random()*sources.length)|0];
+    var b = sinks[(Math.random()*sinks.length)|0];
+    var bad = Math.random() < 0.055;
+    particles.push({
+      a:a, b:b, t:0,
+      speed: 0.0042 + Math.random()*0.0026,
+      bad: bad, dead:false, fade:1
+    });
+  }
+
+  function lerp(p,q,t){ return {x:p.x+(q.x-p.x)*t, y:p.y+(q.y-p.y)*t}; }
+
+  function posOn(pts, t){
+    // t in 0..1 across 4 segments
+    var seg = Math.min(3, Math.floor(t*4));
+    var lt = (t*4)-seg;
+    return lerp(pts[seg], pts[seg+1], lt);
+  }
+
+  function roundRect(x,y,w,h,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y);
+    ctx.lineTo(x+w-r,y); ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+    ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    ctx.lineTo(x+r,y+h); ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+    ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y);
+    ctx.closePath();
+  }
+
+  function drawChip(n, w, h, fill, stroke, title, sub){
+    roundRect(n.x-w/2, n.y-h/2, w, h, 3);
+    ctx.fillStyle = fill; ctx.fill();
+    ctx.lineWidth = 1; ctx.strokeStyle = stroke; ctx.stroke();
+    ctx.textAlign='center';
+    ctx.fillStyle = '#E8F0F7';
+    ctx.font = '600 '+(W<620?11:13)+'px "IBM Plex Sans", sans-serif';
+    ctx.fillText(title, n.x, n.y + (sub? -2 : 4));
+    if(sub){
+      ctx.fillStyle = 'rgba(232,240,247,.62)';
+      ctx.font = (W<620?9.5:11)+'px "IBM Plex Mono", monospace';
+      ctx.fillText(sub, n.x, n.y+12);
+    }
+  }
+
+  function drawEndpoint(p, align){
+    ctx.fillStyle = 'rgba(232,240,247,.72)';
+    ctx.font = (W<620?10:12)+'px "IBM Plex Mono", monospace';
+    ctx.textAlign = align;
+    ctx.fillText(p.name, p.x + (align==='right'? -11 : 11), p.y+4);
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 2.6, 0, Math.PI*2);
+    ctx.fillStyle = '#1B3A57'; ctx.fill();
+    ctx.strokeStyle = 'rgba(126,155,181,.8)'; ctx.lineWidth = 1; ctx.stroke();
+  }
+
+  function drawWires(){
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(27,58,87,.95)';
+    sources.forEach(function(s){
+      ctx.beginPath(); ctx.moveTo(s.x,s.y);
+      ctx.lineTo(nodes.ingest.x-33, nodes.ingest.y); ctx.stroke();
+    });
+    sinks.forEach(function(s){
+      ctx.beginPath(); ctx.moveTo(nodes.fan.x+28, nodes.fan.y);
+      ctx.lineTo(s.x,s.y); ctx.stroke();
+    });
+    ctx.beginPath();
+    ctx.moveTo(nodes.ingest.x+33, nodes.ingest.y); ctx.lineTo(nodes.norm.x-40, nodes.norm.y);
+    ctx.moveTo(nodes.norm.x+40, nodes.norm.y);   ctx.lineTo(nodes.fan.x-28, nodes.fan.y);
+    ctx.stroke();
+  }
+
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+
+    // faint grid
+    ctx.strokeStyle = 'rgba(27,58,87,.34)';
+    ctx.lineWidth = 1;
+    for(var gx=0; gx<W; gx+=28){
+      ctx.beginPath(); ctx.moveTo(gx+.5,0); ctx.lineTo(gx+.5,H); ctx.stroke();
+    }
+
+    drawWires();
+    sources.forEach(function(p){ drawEndpoint(p,'right'); });
+    sinks.forEach(function(p){ drawEndpoint(p,'left'); });
+
+    // particles
+    for(var i=particles.length-1;i>=0;i--){
+      var p = particles[i];
+      if(!p.dead) p.t += p.speed;
+
+      if(p.bad && p.t > 0.25 && !p.dead){
+        p.dead = true; p.t = 0.25;
+        badCount++;
+        outBad.textContent = badCount.toLocaleString();
+      }
+      if(p.dead){ p.fade -= 0.035; }
+      if(p.t >= 1 || p.fade <= 0){ particles.splice(i,1); continue; }
+
+      var pts = path(p);
+      var pos = posOn(pts, Math.min(p.t,1));
+      ctx.globalAlpha = p.dead ? Math.max(p.fade,0) : 1;
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, p.dead ? 3.4 : 2.1, 0, Math.PI*2);
+      ctx.fillStyle = p.dead ? '#F2B44A' : '#00ADD8';
+      ctx.fill();
+      if(p.dead){
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, 3.4 + (1-p.fade)*9, 0, Math.PI*2);
+        ctx.strokeStyle = 'rgba(242,180,74,'+Math.max(p.fade*.7,0)+')';
+        ctx.lineWidth = 1.2; ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    var nw = W < 620;
+    drawChip(nodes.ingest, nw?54:78, 44, '#00ADD8', '#4ad2f0', 'Ingest', 'Go');
+    drawChip(nodes.norm,   nw?52:88, 44, '#0F2238', '#2d5f86', nw?'Norm.':'Normalise', nw?'':'one model');
+    drawChip(nodes.fan,    nw?44:60, 44, '#1b3f8f', '#3a62c9', nw?'Out':'Fan-out', '');
+
+    if(!reduce){
+      var load = +slider.value;
+      var rate = 0.06 + Math.pow(load/100, 1.5)*1.5;
+      spawnAcc += rate;
+      while(spawnAcc >= 1 && particles.length < 420){ spawn(); spawnAcc -= 1; }
+      requestAnimationFrame(frame);
+    }
+  }
+
+  function updateLabel(){
+    var load = +slider.value;
+    var n = Math.round(100 + Math.pow(load/100, 2.0) * 9900);
+    outStreams.textContent = n.toLocaleString();
+  }
+
+  function init(){
+    layout(); updateLabel();
+    if(reduce){
+      for(var i=0;i<26;i++){ var p={a:sources[i%4], b:sinks[i%4], t:(i%13)/13, speed:0, bad:false, dead:false, fade:1}; particles.push(p); }
+      frame();
+    } else {
+      requestAnimationFrame(frame);
+    }
+  }
+
+  slider.addEventListener('input', updateLabel);
+  window.addEventListener('resize', function(){ layout(); if(reduce) frame(); });
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ if(reduce) frame(); }); }
+  init();
+})();
+</script>
+</body>
+</html>
